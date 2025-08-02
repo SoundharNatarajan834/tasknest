@@ -1,10 +1,7 @@
-<h1 align="center">Hi 👋, I'm Soundhar Natarajan</h1>
-<h3 align="center">A passionate Backend Node.js/SQL developer</h3>
+<h1 align="center"> TaskNest API</h1>
+<h3 align="center">API for a small team-based productivity application</h3>
 
-- 🔭 I’m currently working on **a team based productivity application**
-
--  TaskNest API
-A secure and scalable **Task Management REST API** built with **Node.js**, designed for small team-based productivity apps.  
+- 🔭 A secure and scalable **Task Management REST API** built with **Node.js**, designed for small team-based productivity apps.  
 It includes user authentication, personal task CRUD operations, and a rate-limited motivational quotes feature using an external API.
 
 ## 🚀 Features
@@ -87,3 +84,4 @@ Add rate-limiting and brute-force protection on auth routes
 👨‍💻 Author
 Soundhar Natarajam
 📧 soundhar1996@gmail.com
+
