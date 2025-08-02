@@ -31,15 +31,18 @@ cd tasknest
 npm install**
 
 
-📬 API Endpoints
-Method	Endpoint	Description	Auth Required
-POST	/register	Register a new user	❌
-POST	/login	Login and receive JWT	❌
-GET	/tasks	Get all tasks of logged user	✅
-POST	/tasks	Create a new task	✅
-PUT	/tasks/:id	Update a task	✅
-DELETE	/tasks/:id	Delete a task	✅
-GET	/quote	Get a motivational quote	✅ (Rate-limited)
+## 📬 API Endpoints
+
+| Method | Endpoint     | Description                | Auth Required     |
+|--------|--------------|----------------------------|-------------------|
+| POST   | /register    | Register a new user        | ❌                |
+| POST   | /login       | Login and receive JWT      | ❌                |
+| GET    | /tasks       | Get tasks for logged user  | ✅                |
+| POST   | /tasks       | Create a new task          | ✅                |
+| PUT    | /tasks/:id   | Update a task              | ✅                |
+| DELETE | /tasks/:id   | Delete a task              | ✅                |
+| GET    | /quote       | Get motivational quote     | ✅ (Rate-limited) |
+
 
 
 
@@ -73,6 +76,7 @@ Add rate-limiting and brute-force protection on auth routes
 👨‍💻 Author
 Soundhar Natarajam
 📧 soundhar1996@gmail.com
+
 
 
 
