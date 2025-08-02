@@ -51,34 +51,42 @@ You can find the Postman collection here :
 
 (https://api.postman.com/collections/27246216-a3ded2ab-bedf-43aa-abfd-bc799c6ef7e7?access_key=PMAT-01K1MQXQNZ9Y99MCSSNZX98HER)
 
-📄 Assumptions
-Each user can only manage their own tasks.
-Quotes endpoint is globally rate-limited per IP.
-App is used by small teams but written to scale.
+## 📄 Assumptions
 
+- Each user can only manage their own tasks.  
+- Quotes endpoint is globally rate-limited per IP.  
+- App is used by small teams but written to scale.  
 
-📈 Scaling to 100k Users
+---
+
+## 📈 Scaling to 100k Users
+
 To scale this system:
-Use a load balancer (e.g., NGINX)
-Implement horizontal scaling with multiple Node.js instances
-Switch to Redis for session/token caching
-Use MongoDB Atlas or a scalable managed DB
-Implement background task queues for long-running jobs
 
-🛡️ Production Readiness
+- Use a load balancer (e.g., NGINX)  
+- Implement horizontal scaling with multiple Node.js instances  
+- Switch to Redis for session/token caching  
+- Use MongoDB Atlas or a scalable managed DB  
+- Implement background task queues for long-running jobs  
+
+---
+
+## 🛡️ Production Readiness
+
 For production:
-Enable HTTPS
-Store secrets in a secure vault (e.g., AWS Secrets Manager)
-Use Helmet, CORS, and input sanitizers
-Apply logging and monitoring (Winston + Prometheus)
-Enable request validation on all routes
-Add rate-limiting and brute-force protection on auth routes
 
-👨‍💻 Author
-Soundhar Natarajam
-📧 soundhar1996@gmail.com
+- Enable HTTPS  
+- Store secrets in a secure vault (e.g., AWS Secrets Manager)  
+- Use Helmet, CORS, and input sanitizers  
+- Apply logging and monitoring (Winston + Prometheus)  
+- Enable request validation on all routes  
+- Add rate-limiting and brute-force protection on auth routes  
 
+---
 
+## 👨‍💻 Author
 
+**Soundhar Natarajam**  
+📧 soundhar1996@gmail.com  
 
 
