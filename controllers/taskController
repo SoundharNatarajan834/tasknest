@@ -1,0 +1,119 @@
+const sql = require('mssql');
+const { pool, poolConnect } = require('../config/db'); // adjust the path as per your project
+
+// Create Task
+exports.createTask = async (req, res) => {
+  try {
+    await poolConnect;
+
+    const { user_id, title, description, dueDate } = req.body;
+
+    if (!user_id || !title || !dueDate) {
+      return res.status(400).json({ message: 'user_id, title, and dueDate are required' });
+    }
+
+    const result = await pool.request()
+      .input('userId', sql.Int, user_id)
+      .input('title', sql.VarChar(255), title)
+      .input('description', sql.Text, description || null)
+      .input('dueDate', sql.DateTime, dueDate)
+      .query(`
+        INSERT INTO tasks (user_id, title, description, due_date)
+        VALUES (@userId, @title, @description, @dueDate)
+      `);
+
+    res.status(201).json({ message: 'Task created successfully' });
+  } catch (error) {
+    console.error('Create Task Error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
+
+
+
+
+// List Tasks
+exports.listAllTasks = async (req, res) => {
+  try {
+    await poolConnect;
+
+    const result = await pool.request()
+      .query(`SELECT * FROM tasks ORDER BY created_at DESC`);
+
+    res.status(200).json(result.recordset);
+  } catch (error) {
+    console.error('List Tasks Error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
+
+
+
+
+
+// Update Task
+exports.updateTask = async (req, res) => {
+  try {
+    await poolConnect;
+
+    const { id } = req.params; // task ID to update
+    const { title, description, status, dueDate } = req.body;
+
+    if (!id) {
+      return res.status(400).json({ message: 'Task ID is required in URL' });
+    }
+
+    const result = await pool.request()
+      .input('id', sql.Int, id)
+      .input('title', sql.VarChar(255), title)
+      .input('description', sql.Text, description)
+      .input('status', sql.VarChar(50), status)
+      .input('dueDate', sql.DateTime, dueDate)
+      .query(`
+        UPDATE tasks
+        SET 
+          title = @title,
+          description = @description,
+          status = @status,
+          due_date = @dueDate
+        WHERE id = @id
+      `);
+
+    res.status(200).json({ message: 'Task updated successfully' });
+  } catch (error) {
+    console.error('Update Task Error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
+
+
+
+
+// Delete Task
+exports.deleteTask = async (req, res) => {
+  try {
+    await poolConnect;
+
+    const { id } = req.body; // task ID passed in request body
+
+    if (!id) {
+      return res.status(400).json({ message: 'Task ID is required in request body' });
+    }
+
+    const result = await pool.request()
+      .input('id', sql.Int, id)
+      .query(`DELETE FROM tasks WHERE id = @id`);
+
+    if (result.rowsAffected[0] === 0) {
+      return res.status(404).json({ message: 'Task not found or already deleted' });
+    }
+
+    res.status(200).json({ message: 'Task deleted successfully' });
+  } catch (error) {
+    console.error('Delete Task Error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
