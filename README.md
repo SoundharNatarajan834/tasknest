@@ -29,7 +29,8 @@ It includes user authentication, personal task CRUD operations, and a rate-limit
 **git clone https://github.com/SoundharNatarajan834/tasknest.git
 cd tasknest
 npm install**
-This project uses a `.env` file to store sensitive config variables.
+
+- This project uses a `.env` file to store sensitive config variables.
 
 
 ## 📬 API Endpoints
@@ -89,6 +90,7 @@ For production:
 
 **Soundhar Natarajam**  
 📧 soundhar1996@gmail.com  
+
 
 
 
