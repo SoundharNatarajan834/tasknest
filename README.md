@@ -31,17 +31,6 @@ cd tasknest
 npm install**
 
 
-Create a .env file and add:
-
-PORT=3000
-JWT_SECRET='Secret key'
-DB_USER=taskusers
-DB_PASSWORD=Omega@123
-DB_SERVER=LAPTOP-FGMOF7ON
-DB_INSTANCE=MSSQLSERVER01
-DB_NAME=tasknest
-SESSION_SECRET=myUltraSecretKey123!
-
 📬 API Endpoints
 Method	Endpoint	Description	Auth Required
 POST	/register	Register a new user	❌
@@ -84,5 +73,6 @@ Add rate-limiting and brute-force protection on auth routes
 👨‍💻 Author
 Soundhar Natarajam
 📧 soundhar1996@gmail.com
+
 
 
