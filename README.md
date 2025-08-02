@@ -3,24 +3,87 @@
 
 - 🔭 I’m currently working on **a team based productivity application**
 
-- 🌱 I’m currently learning **React**
+-  TaskNest API
+A secure and scalable **Task Management REST API** built with **Node.js**, designed for small team-based productivity apps.  
+It includes user authentication, personal task CRUD operations, and a rate-limited motivational quotes feature using an external API.
 
-- 👯 I’m looking to collaborate on **In22labs**
+## 🚀 Features
 
-- 🤝 I’m looking for help with **tasknest**
+- 🔐 User registration and login (with JWT auth)
+- 📝 CRUD operations for personal tasks
+- 🔒 Each user can access only their own tasks
+- 💡 Rate-limited endpoint for motivational quotes (via [Quotable API](https://api.quotable.io/random))
+- 🛡️ Input validation and sanitization
+- 🔄 Modular and scalable project structure
 
-- 💬 Ask me about **JavaScript - Node.js/SQL**
+- ## 🛠️ Tech Stack
 
-- 📫 How to reach me **soundhar1996@gmail.com**
+- Node.js
+- Express.js
+- MongoDB / PostgreSQL (depending on your use case)
+- JWT for authentication
+- Bcrypt for password hashing
+- Express-rate-limit for API throttling
+- Express-validator for validation
 
-- 📄 Know about my experiences [3 Yrs Node.js developer](3 Yrs Node.js developer)
+- ## 📦 Installation
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://linkedin.com/in/https://www.linkedin.com/in/soundhar-natarajan-3904911b1/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/soundhar-natarajan-3904911b1/" height="30" width="40" /></a>
-</p>
-
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.microsoft.com/en-us/sql-server" target="_blank" rel="noreferrer"> <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" alt="mssql" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> </p>
+-bash
+**git clone https://github.com/SoundharNatarajan834/tasknest.git
+cd tasknest
+npm install**
 
 
+Create a .env file and add:
+
+PORT=3000
+JWT_SECRET='Secret key'
+DB_USER=taskusers
+DB_PASSWORD=Omega@123
+DB_SERVER=LAPTOP-FGMOF7ON
+DB_INSTANCE=MSSQLSERVER01
+DB_NAME=tasknest
+SESSION_SECRET=myUltraSecretKey123!
+
+📬 API Endpoints
+Method	Endpoint	Description	Auth Required
+POST	/register	Register a new user	❌
+POST	/login	Login and receive JWT	❌
+GET	/tasks	Get all tasks of logged user	✅
+POST	/tasks	Create a new task	✅
+PUT	/tasks/:id	Update a task	✅
+DELETE	/tasks/:id	Delete a task	✅
+GET	/quote	Get a motivational quote	✅ (Rate-limited)
+
+
+
+📮 Postman Collection
+You can find the Postman collection here
+(https://api.postman.com/collections/27246216-a3ded2ab-bedf-43aa-abfd-bc799c6ef7e7?access_key=PMAT-01K1MQXQNZ9Y99MCSSNZX98HER)
+
+📄 Assumptions
+Each user can only manage their own tasks.
+Quotes endpoint is globally rate-limited per IP.
+App is used by small teams but written to scale.
+
+
+📈 Scaling to 100k Users
+To scale this system:
+Use a load balancer (e.g., NGINX)
+Implement horizontal scaling with multiple Node.js instances
+Switch to Redis for session/token caching
+Use MongoDB Atlas or a scalable managed DB
+Implement background task queues for long-running jobs
+
+🛡️ Production Readiness
+For production:
+Enable HTTPS
+Store secrets in a secure vault (e.g., AWS Secrets Manager)
+Use Helmet, CORS, and input sanitizers
+Apply logging and monitoring (Winston + Prometheus)
+Enable request validation on all routes
+Add rate-limiting and brute-force protection on auth routes
+
+👨‍💻 Author
+Soundhar Natarajam
+📧 soundhar1996@gmail.com
