@@ -47,7 +47,8 @@ npm install**
 
 
 📮 Postman Collection
-You can find the Postman collection here
+You can find the Postman collection here :
+
 (https://api.postman.com/collections/27246216-a3ded2ab-bedf-43aa-abfd-bc799c6ef7e7?access_key=PMAT-01K1MQXQNZ9Y99MCSSNZX98HER)
 
 📄 Assumptions
@@ -76,6 +77,7 @@ Add rate-limiting and brute-force protection on auth routes
 👨‍💻 Author
 Soundhar Natarajam
 📧 soundhar1996@gmail.com
+
 
 
 
