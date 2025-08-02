@@ -17,7 +17,7 @@ It includes user authentication, personal task CRUD operations, and a rate-limit
 
 - Node.js
 - Express.js
-- MongoDB / PostgreSQL (depending on your use case)
+- Microsoft SQL Server
 - JWT for authentication
 - Bcrypt for password hashing
 - Express-rate-limit for API throttling
@@ -84,4 +84,5 @@ Add rate-limiting and brute-force protection on auth routes
 👨‍💻 Author
 Soundhar Natarajam
 📧 soundhar1996@gmail.com
+
 
